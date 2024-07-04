@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmwsg7y72enr3"]
+
+[ext_resource type="Texture2D" uid="uid://cwvg0vmxrbme3" path="res://Sprites/Blank.png" id="1_5qnvl"]
+[ext_resource type="Script" path="res://Game_Manger.gd" id="1_n3dej"]
+[ext_resource type="Texture2D" uid="uid://bgjmc3arvhxoi" path="res://Sprites/Rounded Box Outline.png" id="2_m5lx5"]
+[ext_resource type="PackedScene" uid="uid://uahhocrc2b18" path="res://Objects/Mole_Hole.tscn" id="3_cmxtt"]
+[ext_resource type="PackedScene" uid="uid://b68jendie0h60" path="res://Objects/Player.tscn" id="5_ghqqi"]
+
+[node name="Scene" type="Node2D"]
+script = ExtResource("1_n3dej")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.145559, 0.366361, 0, 1)
+position = Vector2(578, 325)
+scale = Vector2(18.125, 10.1875)
+texture = ExtResource("1_5qnvl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.497438, 0.271474, 0.174492, 1)
+position = Vector2(582, 305)
+scale = Vector2(3.23619, 2.40797)
+texture = ExtResource("2_m5lx5")
+
+[node name="Holes" type="Node2D" parent="."]
+
+[node name="MoleHole" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(311, 159)
+
+[node name="MoleHole5" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(314, 288)
+
+[node name="MoleHole6" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(475, 288)
+
+[node name="MoleHole7" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(667, 289)
+
+[node name="MoleHole8" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(844, 292)
+
+[node name="MoleHole9" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(318, 432)
+
+[node name="MoleHole10" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(479, 431)
+
+[node name="MoleHole11" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(668, 428)
+
+[node name="MoleHole12" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(843, 436)
+
+[node name="MoleHole2" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(470, 160)
+
+[node name="MoleHole3" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(660, 161)
+
+[node name="MoleHole4" parent="Holes" instance=ExtResource("3_cmxtt")]
+position = Vector2(842, 162)
+
+[node name="Player" parent="." instance=ExtResource("5_ghqqi")]
+modulate = Color(0.824645, 0.002208, 0.0887578, 1)
+position = Vector2(1017, 492)
+
+[node name="Player2" parent="." instance=ExtResource("5_ghqqi")]
+modulate = Color(0.296186, 0.4552, 0.628823, 1)
+position = Vector2(130, 475)
+
+[node name="UI" type="Node2D" parent="."]
+
+[node name="Player1_Score" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Time" type="Label" parent="UI"]
+offset_left = 554.0
+offset_top = 6.0
+offset_right = 594.0
+offset_bottom = 29.0
+
+[node name="Player2_Score" type="Label" parent="UI"]
+offset_left = 983.0
+offset_top = 1.0
+offset_right = 1023.0
+offset_bottom = 24.0
+
+[connection signal="Assign_P2" from="." to="Player" method="_on_scene_assign_p_2"]
+[connection signal="Hit_Mole" from="Player" to="." method="_on_player_hit_mole"]
+[connection signal="Hit_Mole" from="Player2" to="." method="_on_player_2_hit_mole"]
